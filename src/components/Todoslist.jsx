@@ -111,12 +111,12 @@ export const Todoslist = ({ todos }) => {
             </Grid>
 
             <Grid item container xs={6}>
-              <NavLink to={`/todo/${todo.id}`} style={{ width: "100%" }}>
+              <NavLink to={`/todos/${todo.id}`} style={{ width: "100%" }}>
                 <Button variant="outlined" fullWidth>
                   Edit
                 </Button>
               </NavLink>
-            </Grid>
+            </Grid> 
           </Grid>
         </TodoCard>
       ))}
