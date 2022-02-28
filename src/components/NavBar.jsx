@@ -21,7 +21,7 @@ const AddButton = styled(Button)({
   "&:hover": {
     backgroundColor: "#fff",
     border: "2px solid #fff",
-    color: "blue"
+    color: "blue",
   },
 });
 

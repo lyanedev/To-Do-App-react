@@ -2,11 +2,20 @@
   "todos": [
     {
       "id": "1",
-      "title": "Welcome to ToDo App!",
+      "title": "Do homeworks",
       "tags": ["welcome", "todo"],
       "important": true,
       "completed": false,
-      "description": "App made with ❤️ by Lyane Lamara.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non eleifend nibh. Nullam ut suscipit massa. Nam at lacus orci. Aliquam et mattis sem. In porta fermentum orci sit amet pellentesque. Sed magna metus, vehicula nec rhoncus sit amet, tempus eu leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi eu mi sed metus tristique dapibus. Aliquam efficitur, libero id iaculis scelerisque, sem lectus venenatis nisl, sed tempus arcu quam ac augue. Sed bibendum odio sed pulvinar dapibus. Morbi posuere lobortis lacus eu faucibus. Quisque feugiat sodales libero eu ultricies. Suspendisse potenti. Curabitur arcu erat, tempor at auctor ut, scelerisque vel leo. Quisque ac laoreet arcu. Quisque a elit ac ligula consequat feugiat.",
+      "date": "01-12-2022"
+    },
+    {
+      "id": "2",
+      "title": "Welcome to ToDo App!",
+      "tags": ["welcome", "todo"],
+      "important": false,
+      "done": false,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non eleifend nibh. Nullam ut suscipit massa. Nam at lacus orci. Aliquam et mattis sem. In porta fermentum orci sit amet pellentesque. Sed magna metus, vehicula nec rhoncus sit amet, tempus eu leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi eu mi sed metus tristique dapibus. Aliquam efficitur, libero id iaculis scelerisque, sem lectus venenatis nisl, sed tempus arcu quam ac augue. Sed bibendum odio sed pulvinar dapibus. Morbi posuere lobortis lacus eu faucibus. Quisque feugiat sodales libero eu ultricies. Suspendisse potenti. Curabitur arcu erat, tempor at auctor ut, scelerisque vel leo. Quisque ac laoreet arcu. Quisque a elit ac ligula consequat feugiat.",
       "date": "01-12-2022"
     }
   ]
