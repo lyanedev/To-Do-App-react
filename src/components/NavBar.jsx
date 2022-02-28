@@ -1,29 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-import {
-  styled,
-  Container,
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-} from "@mui/material";
+import { Container, AppBar, Toolbar, Typography } from "@mui/material";
 import AddCircleOutlineRoundedIcon from "@mui/icons-material/AddCircleOutlineRounded";
 
-import "./navBar.styled";
-
-const AddButton = styled(Button)({
-  height: 60,
-  fontFamily: "Poppins",
-  fontSize: 30,
-  color: "#fff",
-  border: "2px solid #fff",
-  "&:hover": {
-    backgroundColor: "#fff",
-    border: "2px solid #fff",
-    color: "blue",
-  },
-});
+import { AddButton } from "./navBar.styled";
 
 export const NavBar = () => {
   const navigate = useNavigate();

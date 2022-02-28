@@ -8,10 +8,14 @@ export const Home = () => {
   const { data, isPending, error } = useFetch("http://localhost:3000/todos");
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap"
+    }}>
       {error && <Typography variant="p">{error}</Typography>}
       {isPending && <Typography variant="p">Loading...</Typography>}
-      {data && <Todoslist todos={data}/>}
+      {data && <Todoslist todos={data} />}
     </Container>
   );
 };
