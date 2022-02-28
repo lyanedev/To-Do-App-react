@@ -1,0 +1,13 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "title": "Welcome to ToDo App!",
+      "tags": ["welcome", "todo"],
+      "important": true,
+      "completed": false,
+      "description": "App made with ❤️ by Lyane Lamara.",
+      "date": "01-12-2022"
+    }
+  ]
+}
