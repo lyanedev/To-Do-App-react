@@ -8,7 +8,12 @@ import { AddButton } from "./navBar.styled";
 export const NavBar = () => {
   const navigate = useNavigate();
   return (
-    <AppBar position="static" color="primary">
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "#03a9f4",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar>
           <Typography
@@ -23,13 +28,23 @@ export const NavBar = () => {
               cursor: "pointer",
             }}
           >
-            ToDo App
+            todo app
+            <span
+              style={{
+                fontSize: 20,
+                marginLeft: 10,
+                color: "#b3e5fc",
+                fontWeight: "500",
+              }}
+            >
+              by lyanedev( )
+            </span>
           </Typography>
           <AddButton
             variant="outlined"
             startIcon={<AddCircleOutlineRoundedIcon />}
           >
-            Add
+            Ajouter
           </AddButton>
         </Toolbar>
       </Container>

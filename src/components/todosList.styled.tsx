@@ -6,10 +6,10 @@ export const TodoCard = styled(Card)({
   fontFamily: "Poppins",
   padding: 30,
   margin: 15,
-  outline: "3px solid #7b1fa2",
+  border: "3px solid #2196f3",
   borderRadius: 25,
   transition: "all 0.3s ease",
   "&:hover": {
-    transform: "rotate(3deg)",
+    transform: "scale(1.03)",
   },
 });

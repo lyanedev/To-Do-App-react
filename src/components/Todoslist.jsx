@@ -17,18 +17,21 @@ export const Todoslist = ({ todos }) => {
           <Grid
             container
             direction="row"
-            justifyContent="space-between"
+            justifyContent="space-around"
             alignItems="flex-start"
             spacing={1}
           >
             <Grid item xs={12}>
-              <Typography variant="h4" sx={{ marginBottom: 2 }}>
+              <Typography
+                variant="h4"
+                sx={{ marginBottom: 2, color: "#2196f3", fontWeight: "600" }}
+              >
                 {todo.title}
               </Typography>
             </Grid>
 
             <Grid item xs={1}>
-              <LocalOfferRoundedIcon sx={{ color: "#7b1fa2" }} />
+              <LocalOfferRoundedIcon sx={{ color: "#1e88e5" }} />
             </Grid>
 
             <Grid item xs={2}>
@@ -37,16 +40,16 @@ export const Todoslist = ({ todos }) => {
             <Grid item xs={9}>
               {todo.tags.map((tag) => (
                 <Box
-                  key={Math.random()}
+                  key={tag}
                   sx={{
                     display: "inline",
-                    outline: "2px solid #7b1fa2",
-                    background: "#ce93d8",
+                    border: "2px solid #1e88e5",
+                    background: "#90caf9",
                     borderRadius: 20,
-                    padding: "0 .5rem",
+                    padding: ".2rem .5rem",
                     textAlign: "center",
                     margin: "0.5rem .3rem",
-                    color: "#7b1fa2",
+                    color: "#1e88e5",
                   }}
                 >
                   {tag}
@@ -67,14 +70,14 @@ export const Todoslist = ({ todos }) => {
                   variant="p"
                   sx={{ color: "#f44336", fontWeight: 600 }}
                 >
-                  Important
+                  Prioritaire
                 </Typography>
               ) : (
                 <Typography
                   variant="p"
                   sx={{ color: "#4caf50", fontWeight: 600 }}
                 >
-                  Not important
+                  Pas prioritaire
                 </Typography>
               )}
             </Grid>
@@ -85,20 +88,20 @@ export const Todoslist = ({ todos }) => {
             <Grid item xs={11}>
               <Typography variant="p">
                 <span style={{ color: "#009688", fontWeight: 600 }}>
-                  Info:{" "}
+                  Infos:{" "}
                 </span>
                 {todo.description.substring(0, 80)}...
               </Typography>
             </Grid>
 
             <Grid item xs={1}>
-              <EventAvailableIcon sx={{ color: "#03a9f4" }} />
+              <EventAvailableIcon sx={{ color: "#ef5350" }} />
             </Grid>
 
             <Grid item xs={11}>
               <Typography variant="p">
-                <span style={{ color: "#03a9f4", fontWeight: 600 }}>
-                  Deadline:{" "}
+                <span style={{ color: "#ef5350", fontWeight: 600 }}>
+                  Date limite:{" "}
                 </span>
                 {todo.date}
               </Typography>
@@ -106,17 +109,17 @@ export const Todoslist = ({ todos }) => {
 
             <Grid item container xs={6}>
               <Button variant="contained" fullWidth>
-                Done
+                Supprimer
               </Button>
             </Grid>
 
             <Grid item container xs={6}>
               <NavLink to={`/todos/${todo.id}`} style={{ width: "100%" }}>
                 <Button variant="outlined" fullWidth>
-                  Edit
+                  Détails
                 </Button>
               </NavLink>
-            </Grid> 
+            </Grid>
           </Grid>
         </TodoCard>
       ))}
