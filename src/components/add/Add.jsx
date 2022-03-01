@@ -125,7 +125,7 @@ export const Add = () => {
                     color: "#1e88e5",
                   }}
                 >
-                  {tag}, 
+                  {tag}
                 </Box>
               ))}
             </Typography>
