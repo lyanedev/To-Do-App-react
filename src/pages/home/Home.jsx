@@ -6,7 +6,7 @@ import { useFetch } from "../../hooks/useFetch";
 import "./home.styled";
 
 export const Home = () => {
-  const { data, isPending, error } = useFetch("http://localhost:3000/todos");
+  const { data, isPending, error } = useFetch("http://localhost:3004/todos");
 
   return (
     <Container

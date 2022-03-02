@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 .App {
   font-family: "Poppins", sans-serif;
   min-height: 100%;
-  background: #bbdefb
+  background: rgb(249,249,249)
 }
 
 a {

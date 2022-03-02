@@ -10,6 +10,6 @@ export const AddButton = styled(Button)({
   "&:hover": {
     backgroundColor: "#fff",
     border: "2px solid #fff",
-    color: "#03a9f4",
+    color: "rgb(50,63,84)",
   },
 });

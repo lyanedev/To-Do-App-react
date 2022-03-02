@@ -25,10 +25,10 @@ const CustomBox = styled(Box)({
   minHeight: 400,
   padding: 20,
   background: "#fff",
-  border: "3px solid #2196f3",
+  border: "4px solid rgb(50,63,84)",
   boxShadow: 24,
   borderRadius: 25,
-  fontFamily:'Poppins'
+  fontFamily: "Poppins",
 });
 
 export const NavBar = () => {
@@ -41,7 +41,7 @@ export const NavBar = () => {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: "#03a9f4",
+        backgroundColor: "rgb(50,63,84)",
       }}
     >
       <Container maxWidth="xl">
@@ -63,7 +63,7 @@ export const NavBar = () => {
               style={{
                 fontSize: 20,
                 marginLeft: 10,
-                color: "#b3e5fc",
+                color: "rgb(255,192,73)",
                 fontWeight: "500",
               }}
             >

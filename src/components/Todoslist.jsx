@@ -4,7 +4,6 @@ import { Typography, Button, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import FeedbackRoundedIcon from "@mui/icons-material/FeedbackRounded";
 import InfoIcon from "@mui/icons-material/Info";
-import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import LocalOfferRoundedIcon from "@mui/icons-material/LocalOfferRounded";
 
 import { TodoCard } from "./todosList.styled";
@@ -24,32 +23,33 @@ export const Todoslist = ({ todos }) => {
             <Grid item xs={12}>
               <Typography
                 variant="h4"
-                sx={{ marginBottom: 2, color: "#2196f3", fontWeight: "600" }}
+                sx={{
+                  marginBottom: 2,
+                  color: "rgb(50,63,84)",
+                  fontWeight: "600",
+                }}
               >
                 {todo.title}
               </Typography>
             </Grid>
 
             <Grid item xs={1}>
-              <LocalOfferRoundedIcon sx={{ color: "#1e88e5" }} />
+              <LocalOfferRoundedIcon sx={{ color: "rgb(250,189,73)" }} />
             </Grid>
 
-            <Grid item xs={2}>
-              <Typography variant="p">Tags: </Typography>
-            </Grid>
-            <Grid item xs={9}>
+            <Grid item xs={11}>
               {todo.tags.map((tag) => (
                 <Box
                   key={tag}
                   sx={{
                     display: "inline",
-                    border: "2px solid #1e88e5",
-                    background: "#90caf9",
+                    border: "2px solid rgb(250,189,73)",
+                    background: "rgb(250,189,73, 0.3)",
                     borderRadius: 20,
                     padding: ".2rem .5rem",
                     textAlign: "center",
                     margin: "0.5rem .3rem",
-                    color: "#1e88e5",
+                    color: "rgb(250,189,73)",
                   }}
                 >
                   {tag}
@@ -58,24 +58,24 @@ export const Todoslist = ({ todos }) => {
             </Grid>
 
             <Grid item xs={1}>
-              {todo.important ? (
-                <FeedbackRoundedIcon sx={{ color: "#f44336" }} />
+              {todo.priority ? (
+                <FeedbackRoundedIcon sx={{ color: "#CC5A71" }} />
               ) : (
-                <FeedbackRoundedIcon sx={{ color: "#4caf50" }} />
+                <FeedbackRoundedIcon sx={{ color: "#8BBF9F" }} />
               )}
             </Grid>
             <Grid item xs={11}>
-              {todo.important ? (
+              {todo.priority ? (
                 <Typography
                   variant="p"
-                  sx={{ color: "#f44336", fontWeight: 600 }}
+                  sx={{ color: "#CC5A71", fontWeight: 600 }}
                 >
                   Prioritaire
                 </Typography>
               ) : (
                 <Typography
                   variant="p"
-                  sx={{ color: "#4caf50", fontWeight: 600 }}
+                  sx={{ color: "#8BBF9F", fontWeight: 600 }}
                 >
                   Pas prioritaire
                 </Typography>
@@ -83,39 +83,55 @@ export const Todoslist = ({ todos }) => {
             </Grid>
 
             <Grid item xs={1}>
-              <InfoIcon sx={{ color: "#009688" }} />
+              <InfoIcon sx={{ color: "#38A3A5" }} />
             </Grid>
-            <Grid item xs={11}>
+            <Grid
+              item
+              xs={11}
+              sx={{
+                marginBottom: 2,
+              }}
+            >
               <Typography variant="p">
-                <span style={{ color: "#009688", fontWeight: 600 }}>
+                <span style={{ color: "#38A3A5", fontWeight: 600 }}>
                   Infos:{" "}
                 </span>
-                {todo.description.substring(0, 80)}...
-              </Typography>
-            </Grid>
-
-            <Grid item xs={1}>
-              <EventAvailableIcon sx={{ color: "#ef5350" }} />
-            </Grid>
-
-            <Grid item xs={11}>
-              <Typography variant="p">
-                <span style={{ color: "#ef5350", fontWeight: 600 }}>
-                  Date limite:{" "}
-                </span>
-                {todo.date}
+                {todo.infos.substring(0, 80)}...
               </Typography>
             </Grid>
 
             <Grid item container xs={6}>
-              <Button variant="contained" fullWidth>
+              <Button
+                variant="outlined"
+                fullWidth
+                sx={{
+                  backgroundColor: "#fff",
+                  border: "2px solid #C44536",
+                  color: "#C5283D",
+                  "&:hover": {
+                    border: "2px solid #C44536",
+                    color: "#fff",
+                    backgroundColor: "#C44536",
+                  },
+                }}
+              >
                 Supprimer
               </Button>
             </Grid>
 
             <Grid item container xs={6}>
               <NavLink to={`/todos/${todo.id}`} style={{ width: "100%" }}>
-                <Button variant="outlined" fullWidth>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{
+                    color: "#fff",
+                    backgroundColor: "rgb(50,63,84)",
+                    "&:hover": {
+                      backgroundColor: "#364359",
+                    },
+                  }}
+                >
                   Détails
                 </Button>
               </NavLink>

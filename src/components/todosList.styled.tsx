@@ -6,7 +6,7 @@ export const TodoCard = styled(Card)({
   fontFamily: "Poppins",
   padding: 30,
   margin: 15,
-  border: "3px solid #2196f3",
+  border: "4px solid rgb(50,63,84)",
   borderRadius: 25,
   transition: "all 0.3s ease",
   "&:hover": {

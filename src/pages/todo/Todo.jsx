@@ -7,17 +7,17 @@ import { styled } from "@mui/material/styles";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import FeedbackRoundedIcon from "@mui/icons-material/FeedbackRounded";
 import InfoIcon from "@mui/icons-material/Info";
+import LocalOfferRoundedIcon from "@mui/icons-material/LocalOfferRounded";
 
 import "./todo.styled";
 import { Box } from "@mui/system";
 
 const TodoDetailedCard = styled(Card)({
   width: 1000,
-  minHeight: 500,
   marginTop: 50,
-  padding: 20,
+  padding: "0 2rem 2rem 2rem",
   fontFamily: "Poppins",
-  border: "3px solid #2196f3",
+  border: "4px solid rgb(50,63,84)",
   borderRadius: 25,
 });
 
@@ -26,7 +26,7 @@ export const Todo = () => {
 
   const { id } = useParams();
 
-  const url = "http://localhost:3000/todos/" + id;
+  const url = "http://localhost:3004/todos/" + id;
 
   const { error, isPending, data: todo } = useFetch(url);
 
@@ -35,7 +35,7 @@ export const Todo = () => {
       maxWidth="xl"
       sx={{
         width: "100%",
-        minHeight: "100vh",
+        height: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-start",
@@ -65,13 +65,15 @@ export const Todo = () => {
                 top: 65,
               }}
             >
-              <ArrowBackRoundedIcon sx={{ color: "#2196f3", fontSize: 40 }} />
+              <ArrowBackRoundedIcon
+                sx={{ color: "rgb(50,63,84)", fontSize: 40 }}
+              />
             </IconButton>
 
             <Grid
               container
               direction="column"
-              justifyContent="space-around"
+              justifyContent="space-between"
               alignItems="center"
               flexWrap="wrap"
               spacing={2}
@@ -80,7 +82,7 @@ export const Todo = () => {
                 <Typography
                   variant="p"
                   sx={{
-                    color: "#2196f3",
+                    color: "rgb(50,63,84)",
                     fontWeight: "600",
                     fontSize: 50,
                     textAlign: "center",
@@ -98,27 +100,20 @@ export const Todo = () => {
                 justifyContent="center"
               >
                 <Grid item>
-                  <Typography
-                    variant="p"
-                    sx={{
-                      fontSize: 20,
-                    }}
-                  >
-                    Tags:{" "}
-                  </Typography>
+                  <LocalOfferRoundedIcon sx={{ color: "rgb(250,189,73)" }} />
                   {todo.tags.map((tag) => (
                     <Box
                       key={tag}
                       sx={{
                         display: "inline",
                         fontSize: 20,
-                        border: "2px solid #1e88e5",
-                        background: "#90caf9",
+                        border: "2px solid rgb(250,189,73)",
+                        background: "rgb(250,189,73, 0.3)",
                         borderRadius: 20,
-                        padding: ".4rem 1.5rem",
+                        padding: ".2rem 1rem",
                         textAlign: "center",
                         margin: "0.5rem .3rem",
-                        color: "#1e88e5",
+                        color: "rgb(250,189,73)",
                       }}
                     >
                       {tag}
@@ -128,53 +123,41 @@ export const Todo = () => {
               </Grid>
 
               <Grid item container direction="row" justifyContent="center">
-                <Card
-                  sx={{
-                    padding: "1rem 1.5rem",
-                    border: todo.important
-                      ? "2px solid #f44336"
-                      : "2px solid #4caf50",
-                    borderRadius: 6,
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  {todo.important ? (
-                    <FeedbackRoundedIcon sx={{ color: "#f44336" }} />
-                  ) : (
-                    <FeedbackRoundedIcon sx={{ color: "#4caf50" }} />
-                  )}
-                  {todo.important ? (
-                    <Typography
-                      variant="p"
-                      sx={{ color: "#f44336", fontWeight: 600 }}
-                    >
-                      Prioritaire
-                    </Typography>
-                  ) : (
-                    <Typography
-                      variant="p"
-                      sx={{ color: "#4caf50", fontWeight: 600 }}
-                    >
-                      Pas prioritaire
-                    </Typography>
-                  )}
-                </Card>
+                {todo.important ? (
+                  <FeedbackRoundedIcon sx={{ color: "rgb(204,90,113)" }} />
+                ) : (
+                  <FeedbackRoundedIcon sx={{ color: "rgb(139,191,159)" }} />
+                )}
+                {todo.important ? (
+                  <Typography
+                    variant="p"
+                    sx={{ color: "rgb(204,90,113)", fontWeight: 600 }}
+                  >
+                    Prioritaire
+                  </Typography>
+                ) : (
+                  <Typography
+                    variant="p"
+                    sx={{ color: "rgb(139,191,159)", fontWeight: 600 }}
+                  >
+                    Pas prioritaire
+                  </Typography>
+                )}
               </Grid>
 
-              <Grid item>
+              <Grid item container xs={12}>
                 <Card
                   sx={{
                     width: "100%",
                     padding: 3,
-                    border: "2px solid #009688",
+                    border: "2px solid rgb(56,163,165)",
                     borderRadius: 6,
-                    backgroundColor: "#b2dfdb",
+                    backgroundColor: "rgb(56,163,165, 0.3)",
                   }}
                 >
                   <Typography variant="p">
-                    <InfoIcon sx={{ color: "#009688" }} />
-                    {todo.description}
+                    <InfoIcon sx={{ color: "rgb(56,163,165)" }} />
+                    {todo.infos}
                   </Typography>
                 </Card>
               </Grid>

@@ -1,8 +1,10 @@
+import React, { useEffect } from "react";
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./add.styled";
+import { useFetch } from "../../hooks/useFetch";
 
-import React from "react";
 import Grid from "@mui/material/Grid";
 import {
   TextField,
@@ -24,13 +26,25 @@ export const Add = () => {
   const [newTag, setNewTag] = useState("");
   const [tags, setTags] = useState([]);
   const [infos, setInfos] = useState("");
-  const [date, setDate] = useState(null);
   const tagInput = useRef(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(title, priority, infos);
+  const navigate = useNavigate();
+
+  const { postData, data, error } = useFetch(
+    "http://localhost:3004/todos",
+    "POST"
+  );
+
+  const handleSubmit = () => {
+    postData({ title, priority, tags, infos });
   };
+
+  useEffect(() => {
+    if (data) {
+      handleSubmit();
+      navigate("/");
+    }
+  }, [data, navigate]);
 
   const handleAddTag = () => {
     const tag = newTag.trim();
@@ -49,8 +63,9 @@ export const Add = () => {
             <Typography
               variant="p"
               sx={{
-                color: "#2196f3",
+                color: "rgb(50,63,84)",
                 fontWeight: 600,
+                fontSize: 30,
               }}
             >
               Ajouter tâche
@@ -65,7 +80,7 @@ export const Add = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <TaskAltIcon />
+                    <TaskAltIcon sx={{ color: "rgb(50,63,84)" }} />
                   </InputAdornment>
                 ),
               }}
@@ -77,7 +92,7 @@ export const Add = () => {
           </Grid>
 
           <Grid item container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={7}>
               <TextField
                 placeholder="ex: Dev"
                 label="Tags"
@@ -85,22 +100,31 @@ export const Add = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <LocalOfferRoundedIcon />
+                      <LocalOfferRoundedIcon
+                        sx={{ color: "rgb(255,192,73)" }}
+                      />
                     </InputAdornment>
                   ),
                 }}
                 onChange={(e) => setNewTag(e.target.value)}
                 value={newTag}
                 fullWidth
-                required
                 inputRef={tagInput}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={5}>
               <Button
                 variant="outlined"
                 fullWidth
-                sx={{ height: "100%" }}
+                sx={{
+                  height: "100%",
+                  color: "rgb(255,192,73)",
+                  border: "2px solid rgb(255,192,73)",
+                  "&:hover": {
+                    backgroundColor: "rgb(250,189,73, 0.3)",
+                    border: "2px solid rgb(255,192,73)",
+                  },
+                }}
                 onClick={() => handleAddTag()}
               >
                 Ajouter tag
@@ -116,13 +140,13 @@ export const Add = () => {
                   key={tag}
                   sx={{
                     display: "inline",
-                    border: "2px solid #1e88e5",
-                    background: "#90caf9",
+                    border: "2px solid rgb(250,189,73)",
+                    background: "rgb(250,189,73, 0.3)",
                     borderRadius: 20,
                     padding: ".2rem .5rem",
                     textAlign: "center",
                     margin: "0.5rem .3rem",
-                    color: "#1e88e5",
+                    color: "rgb(250,189,73)",
                   }}
                 >
                   {tag}
@@ -143,7 +167,7 @@ export const Add = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <InfoOutlinedIcon />
+                    <InfoOutlinedIcon sx={{ color: "rgb(56,163,165)" }} />
                   </InputAdornment>
                 ),
               }}
@@ -171,6 +195,13 @@ export const Add = () => {
               variant="contained"
               fullWidth
               endIcon={<ArrowForwardOutlinedIcon />}
+              sx={{
+                backgroundColor: "rgb(46,56,78)",
+                border: "2px solid rgb(46,56,78)",
+                "&:hover": {
+                  backgroundColor: "#364359",
+                },
+              }}
             >
               Ajouter
             </Button>
